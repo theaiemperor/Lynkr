@@ -1,0 +1,25 @@
+{
+  "name": "lynker-backend",
+  "version": "1.0.0",
+  "description": "BackEnd for an ai pdf chat app lynker",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --import=tsx --watch src/index.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "theaiemperor/arman",
+  "license": "ISC",
+  "packageManager": "pnpm@10.7.1",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.1",
+    "@types/node": "^22.14.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
