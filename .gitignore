@@ -1,0 +1,65 @@
+### OS-Specific Files ###
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+
+### Node.js ###
+node_modules/
+*.log
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.env*.local
+
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo
+
+
+
+### Build Output ###
+dist/
+build/
+coverage/
+*.map
+
+
+### Temporary Files ###
+*.tmp
+*.temp
+*.swo
+*.swn
+*.bak
+*.pid
+*.seed
+*.pid.lock
+*.gz
+*.zip
+*.tar
+*.rar
+*.7z
+
+### Editor/IDE Files ###
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+
+### Logs ###
+logs
+debug.log*
