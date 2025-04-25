@@ -33,10 +33,8 @@ export default function ({ onUploadSuccess }: FileUploadSectionProps) {
       if (response.ok) {
         onUploadSuccess(selectedFile);
       } else {
-        console.error("Upload failed");
       }
     } catch (error) {
-      console.error("Error uploading file:", error);
     } finally {
       setIsUploading(null);
     }

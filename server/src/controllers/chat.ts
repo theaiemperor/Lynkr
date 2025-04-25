@@ -9,12 +9,15 @@ export default async function (req: Request, res: any) {
   });
 
   const context = await retriever.invoke(userQuery);
+  const content = context.map((item) => {
+    return item.pageContent;
+  });
 
   const SYSTEM_PROMPT = `
     You are an expert AI assistant. Use ONLY the context below to answer the user's query accurately and concisely.
 
     === CONTEXT START ===
-    ${context}
+    ${JSON.stringify(content)}
     === CONTEXT END ===
 
     INSTRUCTIONS:
