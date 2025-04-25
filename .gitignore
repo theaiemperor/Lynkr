@@ -63,3 +63,7 @@ coverage/
 ### Logs ###
 logs
 debug.log*
+
+
+# custom
+uploads

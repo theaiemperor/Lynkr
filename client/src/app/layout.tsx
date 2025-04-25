@@ -1,12 +1,6 @@
+import Navbar from "@/components/Navbar";
 import "@/static/globals.css";
-import {
-  ClerkProvider,
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { PropsWithChildren } from "react";
@@ -33,18 +27,10 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen bg-gray-200`}
         >
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
-            <SignedOut>
-              <SignInButton />
-              <SignUpButton />
-            </SignedOut>
-            <SignedIn>
-              <UserButton />
-            </SignedIn>
-          </header>
-          {children}
+          <Navbar />
+          <div className="flex-1 ">{children}</div>
         </body>
       </html>
     </ClerkProvider>
