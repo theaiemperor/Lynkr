@@ -1,6 +1,8 @@
 import multer from "multer";
-import { Request, Response } from "express";
+import { Request } from "express";
+import { Queue } from "bullmq";
 
+// Setting up multer for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");
@@ -13,18 +15,20 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-export function uploadFile(req: Request, res: Response) {
+// Creating Queue for processing pdfs
+const queue = new Queue("file-upload", {
+  connection: {
+    host: "localhost",
+    port: 6379,
+  },
+});
+
+export function uploadFile(req: Request, res: any) {
   const uploadMiddleware = upload.single("pdf");
 
   uploadMiddleware(req, res, (err: any) => {
-    if (err) {
-      return res.status(500).json({ error: err.message });
-    }
-
-    if (!req.file) {
-      return res.status(400).json({ error: "No file uploaded" });
-    }
-
-    return res.status(200).json({ ...req.file });
+    queue.add("upload", req.file);
   });
+
+  return res.status(200).send("File uploaded successfully");
 }
