@@ -23,7 +23,7 @@ const queue = new Queue("file-upload", {
   },
 });
 
-export function uploadFile(req: Request, res: any) {
+export default function (req: Request, res: any) {
   const uploadMiddleware = upload.single("pdf");
 
   uploadMiddleware(req, res, (err: any) => {

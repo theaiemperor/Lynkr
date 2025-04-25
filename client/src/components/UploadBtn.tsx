@@ -22,10 +22,13 @@ export default function ({ onUploadSuccess }: FileUploadSectionProps) {
     formData.append("pdf", selectedFile);
 
     try {
-      const response = await fetch("http://localhost:8000/upload", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        process.env.NEXT_PUBLIC_BACKEND_URL + "/upload",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         onUploadSuccess(selectedFile);
