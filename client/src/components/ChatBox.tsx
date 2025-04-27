@@ -148,6 +148,7 @@ export default function ChatUI({ file, slug }: Props) {
         <form onSubmit={handleSubmit} className="flex items-center pt-4 gap-2">
           <input
             type="text"
+            autoFocus
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Ask something..."

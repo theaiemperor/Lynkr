@@ -29,8 +29,10 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased h-screen bg-gray-200`}
         >
-          <Navbar />
-          <div className="flex-1 ">{children}</div>
+          <div className="sticky top-0 z-50">
+            <Navbar />
+          </div>
+          <div className="w-full mt-5">{children}</div>
         </body>
       </html>
     </ClerkProvider>
